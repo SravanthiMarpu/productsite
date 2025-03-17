@@ -1,6 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-
+import React, { useState, useEffect } from "react";
+import { getProducts } from "../Services/ProductService";
 const Container = styled.div`
   padding: 2rem;
   background-color: #f0f2f5;
@@ -44,16 +44,30 @@ const Button = styled.button`
   &:hover {
     background-color: #218838;
   }
-`;
+`; 
 
 const ProductList = () => {
-  const products = [
-    { id: 1, name: 'Smartphone', price: '$499', image: 'https://via.placeholder.com/150' },
-    { id: 2, name: 'Headphones', price: '$150', image: 'https://via.placeholder.com/150' },
-    { id: 3, name: 'Smartwatch', price: '$199', image: 'https://via.placeholder.com/150' },
-    { id: 4, name: 'Camera', price: '$599', image: 'https://via.placeholder.com/150' },
-    { id: 5, name: 'Laptop', price: '$999', image: 'https://via.placeholder.com/150' },
-  ];
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const productsData = await getProducts();
+        setProducts(productsData);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <Container>
@@ -63,13 +77,14 @@ const ProductList = () => {
           <ProductCard key={product.id}>
             <ProductImage src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
-            <p>{product.price}</p>
+            <p>{product.title}</p>
+            <p><strong>Price:</strong> ${product.price}</p>
             <Button>Add to Cart</Button>
           </ProductCard>
         ))}
       </ProductGrid>
     </Container>
-  );
+  )
 };
 
 export default ProductList;
