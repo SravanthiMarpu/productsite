@@ -47,7 +47,7 @@ function ProductDetail() {
   return (
     <div>
       <h1>{product.name}</h1>
-      <img src={product.image} alt={product.name} width="300" />
+      <img src={product.images[0]} alt={product.name} width="300" />
       <p>{product.description}</p>
       <p><strong>Price:</strong> ${product.price}</p>
       <p><strong>Category:</strong> {product.category}</p>

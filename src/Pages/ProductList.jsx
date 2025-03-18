@@ -77,7 +77,7 @@ const ProductList = () => {
       <ProductGrid>
         {products.map((product) => (
           <ProductCard key={product.id}>
-            <ProductImage src={product.image} alt={product.name} />
+            <ProductImage src={product.images[0]} alt={product.name} />
             <h3>{product.name}</h3>
             <NavLink to = {`/product/${product.id}`}><p>{product.title}</p>
             <p><strong>Price:</strong> ${product.price}</p></NavLink>
