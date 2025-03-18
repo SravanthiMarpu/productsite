@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const name ="abc"
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,6 +31,7 @@ const Button = styled.button`
 
 const Home = () => (
   <HomeContainer>
+    <h2>Hello! {name}</h2>
     <h1>Welcome to Our E-Commerce Store</h1>
     <p>Find the best products at unbeatable prices.</p>
     <Link to="/products">

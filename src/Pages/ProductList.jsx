@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import React, { useState, useEffect } from "react";
+import {NavLink } from "react-router-dom";
 import { getProducts } from "../Services/ProductService";
+
 const Container = styled.div`
   padding: 2rem;
   background-color: #f0f2f5;
@@ -77,9 +79,9 @@ const ProductList = () => {
           <ProductCard key={product.id}>
             <ProductImage src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
-            <p>{product.title}</p>
-            <p><strong>Price:</strong> ${product.price}</p>
-            <Button>Add to Cart</Button>
+            <NavLink to = {`/product/${product.id}`}><p>{product.title}</p>
+            <p><strong>Price:</strong> ${product.price}</p></NavLink>
+            <Button>Add to Cart</Button> 
           </ProductCard>
         ))}
       </ProductGrid>
