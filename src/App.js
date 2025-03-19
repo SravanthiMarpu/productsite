@@ -24,7 +24,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/products" element={<ProductList />} />  {/*PLP*/}
         <Route path="/product/:id" element={<ProductDetail/>} /> {/* Product Detail Page */}
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/cart/:id" element={<Cart/>}/>
         <Route path="/orderPlaced" element={<Payment/>}/>
       </Routes>
       <Footer/>

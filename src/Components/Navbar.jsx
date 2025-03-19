@@ -2,6 +2,7 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Cart from '../Pages/Cart';
 //import {Navbar,FormControl} from "react-bootstrap"
 
 const Navbar = () => (
@@ -22,10 +23,9 @@ const Navbar = () => (
       <Link to="/about">About</Link>
       <Link to="/contact">Contact</Link>
       <Link to="/terms">Terms</Link>
-      <Link to="/cart">Cart</Link>
-      <FaShoppingCart color ="white" fontSize="25px"/>
+      <Link to="/cart/2" element ={<Cart/>}>Cart</Link>
+      <Link to="/cart/2"><FaShoppingCart color ="white" fontSize="25px"/></Link>
     </div>
-    
   </nav>
 );
 

@@ -87,7 +87,10 @@ const ProductList = () => {
             <h3>{product.name}</h3>
             <NavLink to = {`/product/${product.id}`}><p>{product.title}</p>
             <p><strong>Price:</strong> ${product.price}</p></NavLink>
-            <Button onClick={handleBackToCartPage}>Add to Cart</Button> 
+            <NavLink to = {`/cart/${product.id}`}>
+                <Button onClick={handleBackToCartPage}>Add to Cart</Button> 
+            </NavLink>
+            
           </ProductCard>
         ))}
       </ProductGrid>
