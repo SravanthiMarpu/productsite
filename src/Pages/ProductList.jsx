@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React, { useState, useEffect } from "react";
-import {NavLink } from "react-router-dom";
+import {NavLink,useNavigate } from "react-router-dom";
 import { getProducts } from "../Services/ProductService";
 
 const Container = styled.div`
@@ -53,6 +53,12 @@ const ProductList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate(); // Hook to navigate programmatically
+  const handleBackToCartPage = () => 
+  {
+    navigate('/cart'); // Navigate to Cart page 
+  }
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -66,7 +72,7 @@ const ProductList = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, []); //dependency array
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -81,7 +87,7 @@ const ProductList = () => {
             <h3>{product.name}</h3>
             <NavLink to = {`/product/${product.id}`}><p>{product.title}</p>
             <p><strong>Price:</strong> ${product.price}</p></NavLink>
-            <Button>Add to Cart</Button> 
+            <Button onClick={handleBackToCartPage}>Add to Cart</Button> 
           </ProductCard>
         ))}
       </ProductGrid>

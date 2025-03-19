@@ -11,10 +11,15 @@ const Contact = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+ 
+  {/* handleSubmit:
+This function is triggered when the form is submitted.
+e.preventDefault() is used to stop the page from refreshing upon form submission.
+It logs the form data to the console (In a real app, you would send this data to an API or handle the form submission logic).
+Once the form is successfully submitted, it sets the isSubmitted state to true, and a success message is displayed. */}
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+
     console.log('Form submitted:', formData);
   };
 

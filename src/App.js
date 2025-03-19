@@ -8,6 +8,8 @@ import Terms from './Pages/Terms';
 import Navbar from './Components/Navbar';
 import ProductDetail from './Pages/ProductDetail';
 import Footer from './Components/Footer';
+import Cart from './Pages/Cart';
+import Payment from './Pages/Payment';
 
 
 function App() {
@@ -20,8 +22,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />
-        <Route path="/products" element={<ProductList />} />
+        <Route path="/products" element={<ProductList />} />  {/*PLP*/}
         <Route path="/product/:id" element={<ProductDetail/>} /> {/* Product Detail Page */}
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/orderPlaced" element={<Payment/>}/>
       </Routes>
       <Footer/>
       </div>
