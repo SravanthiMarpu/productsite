@@ -1,7 +1,9 @@
 // src/components/Navbar.js
 import React from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 //import {Navbar,FormControl} from "react-bootstrap"
+
 const Navbar = () => (
   <nav className="navbar">
     <Link to="/">
@@ -21,7 +23,9 @@ const Navbar = () => (
       <Link to="/contact">Contact</Link>
       <Link to="/terms">Terms</Link>
       <Link to="/cart">Cart</Link>
+      <FaShoppingCart color ="white" fontSize="25px"/>
     </div>
+    
   </nav>
 );
 
