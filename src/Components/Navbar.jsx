@@ -23,8 +23,8 @@ const Navbar = () => (
       <Link to="/about">About</Link>
       <Link to="/contact">Contact</Link>
       <Link to="/terms">Terms</Link>
-      <Link to="/cart/2" element ={<Cart/>}>Cart</Link>
-      <Link to="/cart/2"><FaShoppingCart color ="white" fontSize="25px"/></Link>
+      <Link to="/cart" element ={<Cart/>}>Cart</Link>
+      <Link to="/cart"><FaShoppingCart color ="white" fontSize="25px"/></Link>
     </div>
   </nav>
 );

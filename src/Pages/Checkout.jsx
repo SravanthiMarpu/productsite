@@ -18,19 +18,19 @@ const Button = styled.button`
   }
 `; 
 
-function Cart() {
+function Checkout() {
     const navigate = useNavigate(); // Hook to navigate programmatically
-    const handleBackToCheckoutPage = () => 
+    const handleBackToThankyouPage = () => 
     {
-      navigate('/checkout'); // Navigate to Place Order Page 
+      navigate('/placeOrder'); // Navigate to Place Order Page 
     } 
     return (
         <div className="cart">
-            <h1>Your Shopping Cart</h1>
-            <Button onClick={handleBackToCheckoutPage} >Checkout</Button> 
+            <h1>Checkout Page</h1>
+            <Button onClick={handleBackToThankyouPage}>Place Order</Button> 
         </div>
     ); 
 }
 
 
-export default Cart;
+export default Checkout;

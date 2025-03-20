@@ -9,7 +9,8 @@ import Navbar from './Components/Navbar';
 import ProductDetail from './Pages/ProductDetail';
 import Footer from './Components/Footer';
 import Cart from './Pages/Cart';
-import Payment from './Pages/Payment';
+import Checkout from './Pages/Checkout';
+import ThankyouPage from './Pages/ThankyouPage';
 
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/products" element={<ProductList />} />  {/*PLP*/}
         <Route path="/product/:id" element={<ProductDetail/>} /> {/* Product Detail Page */}
-        <Route path="/cart/:id" element={<Cart/>}/>
-        <Route path="/orderPlaced" element={<Payment/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="/placeOrder" element={<ThankyouPage/>}/>
       </Routes>
       <Footer/>
       </div>
