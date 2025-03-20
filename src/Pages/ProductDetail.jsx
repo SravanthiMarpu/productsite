@@ -1,6 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams,useNavigate } from 'react-router-dom';
 import ProductService from '../Services/ProductService';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: #218838;
+  }
+`; 
 
 
 function ProductDetail() {
@@ -10,6 +25,11 @@ function ProductDetail() {
   const handleBackToPLP = () => {
     navigate('/products'); // Navigate back to the Product Listing Page (PLP)
   };
+  
+  const handleBackToCartPage = () => 
+  {
+    navigate('/cart'); // Navigate to Cart page 
+  }
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -53,7 +73,8 @@ function ProductDetail() {
       <p><strong>Category:</strong> {product.category}</p>
       <p><strong>Brand:</strong> {product.brand}</p>
       {/* Back to PLP button */}
-      <button onClick={handleBackToPLP}>Back to Products</button>
+      <Button onClick={handleBackToPLP}>Back to Products</Button>
+      <Button onClick={handleBackToCartPage}>Add to Cart</Button>
     </div>
   );
 }
